@@ -13,7 +13,7 @@ const Footer = () => (
     <div className="container">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <img src={zorixLogo} alt="ZORIX – Next-Gen Solutions" className="h-9 w-auto" />
+          <img src={zorixLogo} alt="ZORIX – Next-Gen Solutions" className="h-14 w-auto" />
         </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-2">
