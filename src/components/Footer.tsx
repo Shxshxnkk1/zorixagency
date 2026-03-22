@@ -15,7 +15,6 @@ const Footer = () => (
         <div>
           <img src={zorixLogo} alt="ZORIX – Next-Gen Solutions" className="h-9 w-auto" />
         </div>
-        </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           {links.map((l) => (

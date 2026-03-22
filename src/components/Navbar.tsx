@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
+import zorixLogo from "@/assets/zorix-logo.png";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
