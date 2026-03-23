@@ -3,21 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import zorixLogo from "@/assets/zorix-logo.png";
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#portfolio" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "My Work", href: "/portfolio" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border shadow-sm">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#home" className="flex items-center">
-          <img src={zorixLogo} alt="ZORIX – Next-Gen Solutions" className="h-14 md:h-16 w-auto" />
+        <a href="#home" className="flex items-center gap-2 z-50 transition-opacity hover:opacity-80">
+          <img src={zorixLogo} alt="ZORIX Logo" className="h-14 md:h-16 w-auto mix-blend-multiply" />
         </a>
 
         {/* Desktop */}

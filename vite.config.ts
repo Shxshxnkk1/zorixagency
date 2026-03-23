@@ -11,6 +11,16 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      "/api/send-email": {
+        target: "https://api.resend.com/emails",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/send-email/, ""),
+        headers: {
+          Authorization: "Bearer re_bZofe7ZK_Bz8kh5ZdPY17CQYELJZ37wsK",
+        },
+      },
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
