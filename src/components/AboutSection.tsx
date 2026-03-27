@@ -21,7 +21,6 @@ const AboutSection = () => {
       mobile: formData.get('mobile'),
       email: formData.get('email'),
       business_name: formData.get('business_name'),
-      website: formData.get('website'),
       services: selectedServices || 'None selected',
     };
 
@@ -122,32 +121,17 @@ const AboutSection = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground/80">Business Name</label>
-                    <div className="relative group">
-                      <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
-                      <input 
-                        type="text" 
-                        name="business_name"
-                        required
-                        placeholder="Company Ltd."
-                        className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground/80">Website URL</label>
-                    <div className="relative group">
-                      <Globe className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
-                      <input 
-                        type="url" 
-                        name="website"
-                        required
-                        placeholder="https://example.com"
-                        className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                      />
-                    </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground/80">Business Name</label>
+                  <div className="relative group">
+                    <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                    <input 
+                      type="text" 
+                      name="business_name"
+                      required
+                      placeholder="Company Ltd."
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+                    />
                   </div>
                 </div>
 
