@@ -3,10 +3,10 @@ import { Phone } from "lucide-react";
 
 const links = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/services" },
+  { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
-  { label: "Work", href: "/portfolio" },
-  { label: "Contact", href: "/#cta" },
+  { label: "Our Work", href: "/#portfolio" },
+  { label: "Contact", href: "/#about" },
 ];
 
 const Footer = () => (
@@ -22,8 +22,8 @@ const Footer = () => (
             <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors font-semibold uppercase tracking-wide">
               Twitter
             </a>
-            <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors font-semibold uppercase tracking-wide">
-              LinkedIn
+            <a href="mailto:zorixagency@gmail.com" className="text-xs text-muted-foreground hover:text-primary transition-colors font-semibold uppercase tracking-wide">
+              Email
             </a>
             <a href="https://www.instagram.com/zorix.agency?igsh=MXZ1aGwzcW9kMzZraA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-primary transition-colors font-semibold uppercase tracking-wide">
               Instagram
@@ -51,11 +51,11 @@ const Footer = () => (
               </div>
               <span className="font-medium">+91 74831 47208</span>
             </a>
-            <a href="tel:7022728079" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+            <a href="tel:8618130353" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
               <div className="w-8 h-8 rounded-full bg-slate-50 border border-border/50 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors">
                 <Phone className="w-3.5 h-3.5" />
               </div>
-              <span className="font-medium">+91 70227 28079</span>
+              <span className="font-medium">+91 7899499570</span>
             </a>
             <a href="tel:8618130353" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
               <div className="w-8 h-8 rounded-full bg-slate-50 border border-border/50 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors">
@@ -68,7 +68,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-muted-foreground font-medium">© {new Date().getFullYear()} ZORIX. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground font-medium">© {new Date().getFullYear()} Zorix Agency. All rights reserved.</p>
         <div className="flex items-center gap-4 text-xs font-medium text-muted-foreground">
           <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

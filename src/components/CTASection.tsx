@@ -22,8 +22,9 @@ const CTASection = () => (
             <Button
               size="lg"
               className="rounded-full px-8 py-6 text-lg shadow-[0_4px_14px_0_rgba(var(--primary),0.39)] hover:shadow-[0_6px_20px_rgba(var(--primary),0.23)] transition-all hover:-translate-y-1"
+              asChild
             >
-              Start Your Project
+              <a href="/#about">Start Your Project</a>
             </Button>
           </div>
         </div>

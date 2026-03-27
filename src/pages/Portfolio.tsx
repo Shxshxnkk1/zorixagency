@@ -31,10 +31,10 @@ const Portfolio = () => {
         <div className="container relative z-10">
           <ScrollReveal className="mb-16">
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight mb-6 text-foreground">
-              My <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Works</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Work</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
-              A comprehensive showcase of projects, case studies, and digital experiences I've crafted.
+              A comprehensive showcase of projects, case studies, and digital experiences we've crafted.
             </p>
           </ScrollReveal>
 

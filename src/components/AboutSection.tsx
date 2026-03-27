@@ -1,7 +1,8 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 import { toast } from "sonner";
-import { User, Phone, Mail, Briefcase, Send } from "lucide-react";
+import { User, Phone, Mail, Briefcase, Send, Building, Globe } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const AboutSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -11,40 +12,36 @@ const AboutSection = () => {
     setIsSubmitting(true);
     const form = e.target as HTMLFormElement;
     
+    // Manually collect data to ensure multi-select services are joined properly
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const selectedServices = formData.getAll('services').join(', ');
+    
+    const templateParams = {
+      name: formData.get('name'),
+      mobile: formData.get('mobile'),
+      email: formData.get('email'),
+      business_name: formData.get('business_name'),
+      website: formData.get('website'),
+      services: selectedServices || 'None selected',
+    };
 
     try {
-      // Send to our secure backend API route (or Vite proxy) instead of Resend directly to avoid CORS issues
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "Acme <onboarding@resend.dev>", 
-          to: "adityapammannavaryt@gmail.com",
-          subject: "New Lead from ZORIX Website",
-          html: `
-            <h2>New Consultation Request</h2>
-            <p><strong>Name:</strong> ${data.name}</p>
-            <p><strong>Mobile:</strong> ${data.mobile}</p>
-            <p><strong>Email:</strong> ${data.email}</p>
-            <p><strong>Services:</strong> ${data.services}</p>
-          `
-        })
-      });
+      const result = await emailjs.send(
+        'service_2fgmclc', 
+        'template_je8ocpg', 
+        templateParams, 
+        'wPIIbUtqlG2slz3Z_'
+      );
 
-      if (response.ok) {
+      if (result.text === 'OK') {
         toast.success("Thank you! Your request has been sent successfully.");
         form.reset();
       } else {
-        const err = await response.json();
-        console.error("Resend Error:", err);
+        console.error("EmailJS Response Error:", result);
         toast.error("Failed to send request. Please try again.");
       }
     } catch (error) {
-      console.error("Fetch Error:", error);
+      console.error("EmailJS Submission Error:", error);
       toast.error("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -125,6 +122,35 @@ const AboutSection = () => {
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground/80">Business Name</label>
+                    <div className="relative group">
+                      <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                      <input 
+                        type="text" 
+                        name="business_name"
+                        required
+                        placeholder="Company Ltd."
+                        className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground/80">Website URL</label>
+                    <div className="relative group">
+                      <Globe className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                      <input 
+                        type="url" 
+                        name="website"
+                        required
+                        placeholder="https://example.com"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-foreground/80">Email Address</label>
                   <div className="relative group">
@@ -139,31 +165,35 @@ const AboutSection = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-foreground/80">Services Required</label>
-                  <div className="relative group">
-                    <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors z-10 pointer-events-none" />
-                    <select 
-                      name="services"
-                      required
-                      defaultValue=""
-                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-foreground cursor-pointer appearance-none"
-                    >
-                      <option value="" disabled>Select a service...</option>
-                      <option value="social-media">Social Media Marketing</option>
-                      <option value="performance-ads">Performance Ads (Meta & Google)</option>
-                      <option value="web-dev">Website Development</option>
-                      <option value="seo">Search Engine Optimization (SEO)</option>
-                      <option value="branding">Branding & Design</option>
-                      <option value="content">Content Marketing</option>
-                      <option value="multiple">Multiple Services</option>
-                    </select>
-                    {/* Custom Dropdown Arrow */}
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
-                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
+                <div className="space-y-3">
+                  <label className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
+                    <Briefcase className="w-4 h-4 text-primary" />
+                    Services Required (Select all that apply)
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    {[
+                      { id: "social-media", label: "Social Media Marketing" },
+                      { id: "performance-ads", label: "Performance Ads" },
+                      { id: "web-dev", label: "Website Development" },
+                      { id: "seo", label: "SEO Optimization" },
+                      { id: "branding", label: "Branding & Design" },
+                      { id: "content", label: "Content Marketing" },
+                    ].map((service) => (
+                      <label key={service.id} className="flex items-center gap-3 cursor-pointer group">
+                        <div className="relative flex items-center justify-center">
+                          <input 
+                            type="checkbox" 
+                            name="services"
+                            value={service.label}
+                            className="peer appearance-none w-5 h-5 rounded-md border-2 border-slate-300 checked:bg-primary checked:border-primary transition-all duration-200"
+                          />
+                          <svg className="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-sm font-medium text-slate-600 group-hover:text-primary transition-colors">{service.label}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 

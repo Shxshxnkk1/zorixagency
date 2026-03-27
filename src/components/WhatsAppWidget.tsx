@@ -7,8 +7,17 @@ const WhatsAppWidget = () => {
   const url = `https://wa.me/${phoneNumber}?text=${message}`;
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowBubble(true), 3000);
-    return () => clearTimeout(timer);
+    // Show after 5 seconds
+    const showTimer = setTimeout(() => {
+      setShowBubble(true);
+      // Hide after another 5 seconds (10s total)
+      const hideTimer = setTimeout(() => {
+        setShowBubble(false);
+      }, 5000);
+      return () => clearTimeout(hideTimer);
+    }, 5000);
+
+    return () => clearTimeout(showTimer);
   }, []);
 
   return (
@@ -18,7 +27,7 @@ const WhatsAppWidget = () => {
         className={`bg-white text-slate-800 px-4 py-2 rounded-2xl shadow-xl border border-slate-100 text-sm font-medium transition-all duration-500 transform origin-bottom-right pointer-events-auto ${showBubble ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 scale-90'}`}
       >
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-green-500" />
           Chat with Zorix
         </div>
         {/* Triangle Tail */}
@@ -29,10 +38,9 @@ const WhatsAppWidget = () => {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="pointer-events-auto flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_24px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_32px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300 group"
+        className="pointer-events-auto flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full transition-all duration-300 group shadow-lg"
         aria-label="Chat on WhatsApp"
       >
-        <div className="absolute inset-0 rounded-full animate-ping bg-[#25D366] opacity-30 pointer-events-none duration-1000" />
         <svg
           viewBox="0 0 24 24"
           width="30"

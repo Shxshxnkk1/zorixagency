@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import zorixLogo from "@/assets/zorix-logo.png";
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
-  { label: "My Work", href: "/portfolio" },
+  { label: "Our Work", href: "/#portfolio" },
 ];
 
 const Navbar = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button size="default" asChild>
-            <a href="#cta">Get a Quote</a>
+            <a href="/#about">Book Now</a>
           </Button>
         </div>
 
@@ -56,7 +56,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button size="default" className="w-full mt-2" asChild>
-              <a href="#cta">Get a Quote</a>
+              <a href="/#about">Book Now</a>
             </Button>
           </div>
         </div>
