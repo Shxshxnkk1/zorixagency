@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import zorixLogo from "@/assets/zorix-logo.png";
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/#about" },
   { label: "My Work", href: "/portfolio" },
 ];

@@ -131,7 +131,7 @@ const ShowcaseSlider = () => {
         </div>
 
         {/* Right Side: Static Reused Image with Dynamic Feel */}
-        <div className="w-full lg:w-1/2 h-[40vh] lg:h-full flex items-center justify-center relative z-10 hidden md:flex">
+        <div className="w-full lg:w-1/2 h-[40vh] lg:h-full flex items-center justify-center relative z-10 hidden lg:flex">
           <div className="relative w-full max-w-lg aspect-square">
             {/* The single abstract visual that dynamically changes */}
             <img 

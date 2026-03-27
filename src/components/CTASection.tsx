@@ -13,7 +13,7 @@ const CTASection = () => (
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
           
           <div className="relative z-10">
-            <h2 className="font-display text-5xl md:text-7xl tracking-tight mb-6 text-foreground">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-tight mb-6 text-foreground">
               Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Accelerate</span>?
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed" style={{ textWrap: "pretty" }}>

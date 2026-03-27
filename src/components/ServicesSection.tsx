@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import { Link } from "react-router-dom";
 import { BarChart3, Globe, Lightbulb, Mail, Megaphone, MonitorSmartphone, Search, ShoppingBag } from "lucide-react";
 
 const services = [
@@ -44,14 +45,14 @@ const ServicesSection = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((s, i) => (
           <ScrollReveal key={s.title} delay={i * 60}>
-            <div className="group relative bg-white backdrop-blur-xl p-8 h-full rounded-2xl border border-black/5 transition-all duration-500 hover:bg-slate-50 hover:-translate-y-2 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-primary/20 cursor-pointer overflow-hidden">
+            <Link to="/services" className="group block relative bg-white backdrop-blur-xl p-8 h-full rounded-2xl border border-black/5 transition-all duration-500 hover:bg-slate-50 hover:-translate-y-2 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-primary/20 cursor-pointer overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
                 <s.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
               </div>
               <h3 className="font-display text-xl tracking-tight mb-3 text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
+            </Link>
           </ScrollReveal>
         ))}
       </div>

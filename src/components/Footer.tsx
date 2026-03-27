@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 
 const links = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/#about" },
   { label: "Work", href: "/portfolio" },
   { label: "Contact", href: "/#cta" },
