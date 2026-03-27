@@ -137,11 +137,12 @@ const ShowcaseSlider = () => {
             <img 
               src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop" 
               alt="Premium abstract visualization" 
-              className="w-full h-full object-cover rounded-full lg:rounded-[3rem] shadow-2xl animate-float transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              className="w-full h-full object-cover rounded-full lg:rounded-[3rem] shadow-2xl animate-float transition-all duration-1000"
               style={{ 
                 filter: `hue-rotate(${selectedIndex * 72}deg) saturate(1.8) brightness(1.2) contrast(1.1)`,
                 transform: `scale(${1 + selectedIndex * 0.05}) rotate(${selectedIndex * 15}deg)`,
-                opacity: 0.9
+                opacity: 0.9,
+                transitionTimingFunction: "cubic-bezier(0.25,1,0.5,1)"
               }}
             />
             
