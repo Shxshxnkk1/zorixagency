@@ -1,6 +1,7 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 import { toast } from "sonner";
+import { User, Phone, Mail, Briefcase, Send } from "lucide-react";
 
 const AboutSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,8 +30,6 @@ const AboutSection = () => {
             <p><strong>Name:</strong> ${data.name}</p>
             <p><strong>Mobile:</strong> ${data.mobile}</p>
             <p><strong>Email:</strong> ${data.email}</p>
-            <p><strong>Business Name:</strong> ${data.business}</p>
-            <p><strong>Website:</strong> ${data.website}</p>
             <p><strong>Services:</strong> ${data.services}</p>
           `
         })
@@ -100,83 +99,81 @@ const AboutSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-foreground/80">Name</label>
-                    <input 
-                      type="text" 
-                      name="name"
-                      required
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                    />
+                    <div className="relative group">
+                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                      <input 
+                        type="text" 
+                        name="name"
+                        required
+                        placeholder="John Doe"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-foreground/80">Mobile Number</label>
-                    <input 
-                      type="tel" 
-                      name="mobile"
-                      required
-                      placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                    />
+                    <div className="relative group">
+                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                      <input 
+                        type="tel" 
+                        name="mobile"
+                        required
+                        placeholder="+91 98765 43210"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+                      />
+                    </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-foreground/80">Email Address</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    required
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground/80">Business Name</label>
+                  <div className="relative group">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
                     <input 
-                      type="text" 
-                      name="business"
-                      placeholder="Your Company Ltd."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground/80">Website URL</label>
-                    <input 
-                      type="url" 
-                      name="website"
-                      placeholder="https://yourwebsite.com"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+                      type="email" 
+                      name="email"
+                      required
+                      placeholder="john@example.com"
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-foreground/80">Services Required</label>
-                  <select 
-                    name="services"
-                    required
-                    defaultValue=""
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-foreground"
-                  >
-                    <option value="" disabled>Select a service...</option>
-                    <option value="social-media">Social Media Marketing</option>
-                    <option value="performance-ads">Performance Ads (Meta & Google)</option>
-                    <option value="web-dev">Website Development</option>
-                    <option value="seo">Search Engine Optimization (SEO)</option>
-                    <option value="branding">Branding & Design</option>
-                    <option value="content">Content Marketing</option>
-                    <option value="multiple">Multiple Services</option>
-                  </select>
+                  <div className="relative group">
+                    <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors z-10 pointer-events-none" />
+                    <select 
+                      name="services"
+                      required
+                      defaultValue=""
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-foreground cursor-pointer appearance-none"
+                    >
+                      <option value="" disabled>Select a service...</option>
+                      <option value="social-media">Social Media Marketing</option>
+                      <option value="performance-ads">Performance Ads (Meta & Google)</option>
+                      <option value="web-dev">Website Development</option>
+                      <option value="seo">Search Engine Optimization (SEO)</option>
+                      <option value="branding">Branding & Design</option>
+                      <option value="content">Content Marketing</option>
+                      <option value="multiple">Multiple Services</option>
+                    </select>
+                    {/* Custom Dropdown Arrow */}
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 mt-4 bg-gradient-to-r from-purple-600 to-primary text-white font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-4 mt-6 bg-gradient-to-r from-purple-600 to-primary text-white font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed group flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? "Sending Request..." : "Get Free Consultation"}
+                  {!isSubmitting && <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                 </button>
               </form>
 
