@@ -85,7 +85,7 @@ const AboutSection = () => {
           <ScrollReveal delay={200} className="relative">
             <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent blur-2xl rounded-3xl opacity-70" />
             
-            <div className="relative bg-white border border-slate-100 shadow-[0_20px_40px_rgb(0,0,0,0.08)] p-8 md:p-10 rounded-3xl">
+            <div className="relative bg-white border border-slate-100 shadow-[0_15px_35px_rgb(0,0,0,0.05)] p-6 sm:p-8 md:p-10 rounded-3xl">
               <div className="mb-8 text-center">
                 <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 mb-2">Let's Grow Your Business 🚀</h3>
                 <p className="text-muted-foreground text-sm font-medium">100% free consultation. No commitment.</p>
@@ -154,7 +154,7 @@ const AboutSection = () => {
                     <Briefcase className="w-4 h-4 text-primary" />
                     Services Required (Select all that apply)
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200">
                     {[
                       { id: "social-media", label: "Social Media Marketing" },
                       { id: "performance-ads", label: "Performance Ads" },

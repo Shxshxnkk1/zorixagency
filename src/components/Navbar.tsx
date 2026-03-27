@@ -44,7 +44,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-background border-t border-border animate-fade-up">
-          <div className="container py-4 flex flex-col gap-3">
+          <div className="container py-6 flex flex-col gap-3">
             {navLinks.map((l) => (
               <a
                 key={l.href}
